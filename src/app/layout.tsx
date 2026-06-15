@@ -1,5 +1,4 @@
 import { Cormorant_Unicase, Lato } from 'next/font/google'
-import openGraphBanner from '#/public/openGraph-banner.jpg'
 
 const cormorantUnicase = Cormorant_Unicase({
   subsets: ['latin'],
@@ -46,7 +45,7 @@ export const metadata = {
     'Pousada aconchegante Bahia',
     'Onde ficar em Palmas de Monte Alto',
   ],
-  metadataBase: new URL('https://cantodaserrapa.com.br'),
+  metadataBase: new URL('https://cantodaserra-fe.vercel.app'),
   alternates: { canonical: '/' },
   authors: [{ name: 'Gustavo Costa', url: '' }],
   formatDetection: {
@@ -55,7 +54,7 @@ export const metadata = {
     telephone: false,
   },
   openGraph: {
-    images: openGraphBanner,
+    images: '/openGraph-banner.jpg',
     title: 'Pousada Canto da Serra | Palmas de Monte Alto – BA',
     description,
     type: 'website',
@@ -67,7 +66,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Pousada Canto da Serra | Palmas de Monte Alto – BA',
     description,
-    images: [openGraphBanner],
+    images: ['/openGraph-banner.jpg'],
   },
   robots: { index: true, follow: true },
 }
