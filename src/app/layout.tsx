@@ -45,7 +45,7 @@ export const metadata = {
     'Pousada aconchegante Bahia',
     'Onde ficar em Palmas de Monte Alto',
   ],
-  metadataBase: new URL('https://cantodaserra-fe.vercel.app'),
+  metadataBase: new URL('https://www.cantodaserra.com'),
   alternates: { canonical: '/' },
   authors: [{ name: 'Gustavo Costa', url: '' }],
   formatDetection: {
