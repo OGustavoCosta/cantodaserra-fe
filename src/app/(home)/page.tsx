@@ -6,6 +6,9 @@ import { Netflix } from "@/components/Icons";
 import type { LucideIcon } from "lucide-react"
 import type { IconProps } from "@/components/Icons";
 
+/* MOTION */
+import * as motion from "motion/react-client"
+import { motionContainer, fadeLeftItem, fadeDownItem, fadeRightItem, fadeUpItem, defaultViewport } from "@/lib/animation";
 
 /* IMAGENS DO HERO */
 import Banner from "#/public/hero-banner.jpg"
@@ -85,53 +88,131 @@ function Home() {
           <div className="banefits__header">
             <h2 id="benefits-title" className="banefits__title sr-only">Benefícios</h2>
           </div>
-          <div className="banefits__content flex flex-col items-center sm:items-start sm:flex-row w-full gap-8 justify-center flex-wrap">
+          <motion.div
+            className="banefits__content flex flex-col items-center sm:items-start sm:flex-row w-full gap-8 justify-center flex-wrap"
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+            variants={motionContainer}
+          >
             {benefits.map(({id, ...props}) => (
-              <BenefitCard className="max-w-70" key={id} {...props}/>
+              <motion.div key={id} variants={fadeUpItem}>
+                <BenefitCard className="max-w-70" {...props}/>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
       </div>
 
       {/* LOCALIZAÇÃO */}
-      <div className="location__background background-section">
+      <div className="location__background background-section overflow-hidden">
         <section
           className="location w-full max-w-[1440px] py-8 grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1.5fr] mlg:grid-cols-3 md:grid-rows-[20rem_min-content_20rem] gap-4 md:gap-6"
           aria-labelledby="location-title"
         >
-          <Image className="location__image md:min-w-0 rounded-sm w-full h-full object-cover col-span-2" src={BreakfastBanner1} alt=""/>
-          <Image className="location__image md:min-w-0 rounded-sm w-full h-full object-cover" src={BreakfastBanner2} alt=""/>
-          <Image className="location__image md:min-w-0 rounded-sm w-full h-full object-cover md:row-span-2" src={TableInTheCorner} alt=""/>
-          <div className="location__wrapper row-start-2 md:row-auto col-span-2 flex flex-col gap-4 p-4 mlg:p-8">
-            <div className="location__content flex flex-col gap-1">
-              <h2 className="location__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant">Onde o tempo tem outro ritmo</h2>
-              <p className="location__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400">No coração de Palmas de Monte Alto, o Canto da Serra é uma pausa na correria. Pousada pequena, acolhedora e com aquele jeitinho de interior baiano que faz a gente se sentir em casa desde a chegada. Ficamos a poucos passos da Praça Central e das principais atrações históricas da cidade — o ponto de partida perfeito para descobrir o charme autêntico desse pedaço da Bahia.</p>
-            </div>
+          <motion.div
+            className="col-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeDownItem}
+          >
+            <Image className="location__image rounded-sm w-full h-full object-cover" src={BreakfastBanner1} alt=""/>
+          </motion.div>
 
-            <Button text="Localização no Maps" link="https://maps.app.goo.gl/dPUvK5CPZEWcCMws7" target="_blank" rel="noopener noreferrer"/>
-          </div>
-          <Image className="location__image md:min-w-0 rounded-sm w-full h-full object-cover col-span-2" src={LivingRoom} alt=""/>
+          <motion.div
+            className="min-w-0 col-start-2 md:col-auto"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeDownItem}
+          >
+            <Image className="location__image rounded-sm w-full h-full object-cover" src={BreakfastBanner2} alt=""/>
+          </motion.div>
+
+          <motion.div
+            className="min-w-0 md:row-span-2 col-start-1 md:col-auto row-start-3 md:row-auto"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeLeftItem}
+          >
+            <Image className="location__image rounded-sm w-full h-full object-cover mlg:aspect-square" src={TableInTheCorner} alt=""/>
+          </motion.div>
+
+          <motion.div
+            className="location__wrapper row-start-2 md:row-auto col-span-2 flex flex-col gap-4 p-4 mlg:p-8"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={motionContainer}
+          >
+            <motion.h2 className="location__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant" variants={fadeLeftItem}>Onde o tempo tem outro ritmo</motion.h2>
+            <motion.p className="location__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400" variants={fadeLeftItem}>No coração de Palmas de Monte Alto, o Canto da Serra é uma pausa na correria. Pousada pequena, acolhedora e com aquele jeitinho de interior baiano que faz a gente se sentir em casa desde a chegada. Ficamos a poucos passos da Praça Central e das principais atrações históricas da cidade — o ponto de partida perfeito para descobrir o charme autêntico desse pedaço da Bahia.</motion.p>
+            <motion.div variants={fadeLeftItem}>
+              <Button text="Localização no Maps" link="https://maps.app.goo.gl/dPUvK5CPZEWcCMws7" target="_blank" rel="noopener noreferrer"/>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="col-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeUpItem}
+          >
+            <Image className="location__image rounded-sm w-full h-full object-cover" src={LivingRoom} alt=""/>
+          </motion.div>
         </section>
       </div>
 
       {/* TURISMO */}
-      <div className="tourism__background background-section">
+      <div className="tourism__background background-section overflow-hidden">
         <section
           className="tourism w-full max-w-[1440px] py-8 pb-0 grid grid-cols-2 md:grid-cols-3 md:grid-rows-[1fr_repeat(6,10rem)] gap-4 md:gap-6"
           aria-labelledby="tourism-title"
         >
-          <div className="tourism__wrapper col-span-2 md:col-span-1 md:col-start-1 md:row-start-1 flex flex-col gap-1 p-2 mlg:p-4">
-            <h2 id="tourism-title" className="tourism__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant">Turismo em PMA</h2>
-            <p className="tourism__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400">Palmas de Monte Alto tem uma história guardada em cada pedra. A Igreja Matriz, as ruínas centenárias, a Pedra dos Três Irmãos e o Mercado Municipal contam capítulos de uma cidade que ainda não foi descoberta pelo turismo de massa — e é exatamente isso que a torna tão especial. Uma experiência genuína do interior da Bahia, para quem aprecia o que é verdadeiro.</p>
-          </div>
+          <motion.div
+            className="tourism__wrapper col-span-2 md:col-span-1 md:col-start-1 md:row-start-1 flex flex-col gap-1 p-2 mlg:p-4"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={motionContainer}
+          >
+            <motion.h2 id="tourism-title" className="tourism__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant" variants={fadeLeftItem}>Turismo em PMA</motion.h2>
+            <motion.p className="tourism__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400" variants={fadeLeftItem}>Palmas de Monte Alto tem uma história guardada em cada pedra. A Igreja Matriz, as ruínas centenárias, a Pedra dos Três Irmãos e o Mercado Municipal contam capítulos de uma cidade que ainda não foi descoberta pelo turismo de massa — e é exatamente isso que a torna tão especial. Uma experiência genuína do interior da Bahia, para quem aprecia o que é verdadeiro.</motion.p>
+          </motion.div>
 
-          <Image className="tourism__image rounded-sm w-full h-full object-cover col-span-2 md:col-start-2 md:col-span-2 md:row-start-1 md:row-span-2" src={ChurchInRuins} alt="Ruínas de igreja histórica"/>
-          <Image className="tourism__image rounded-sm w-full h-full object-cover md:col-start-1 md:row-start-2 md:row-span-2" src={Church} alt="Igreja"/>
-          <Image className="tourism__image rounded-sm w-full h-full object-cover md:col-start-2 md:row-start-3 md:row-span-3" src={ChurchSeenFromAbove} alt="Vista aérea da igreja"/>
-          <Image className="tourism__image rounded-sm w-full h-full object-cover col-span-2 md:col-start-1 md:col-span-2 md:row-start-6 md:row-span-2" src={MunicipalMarket} alt="Mercado municipal"/>
-          <Image className="tourism__image rounded-sm w-full h-full object-cover md:col-start-3 md:row-start-3 md:row-span-2" src={Ounce} alt="Estátua da onça"/>
-          <Image className="tourism__image rounded-sm w-full h-full object-cover md:col-start-1 md:row-start-4 md:row-span-2" src={Square} alt="Praça"/>
-          <Image className="tourism__image rounded-sm w-full h-full object-cover col-span-2 md:col-span-1 md:col-start-3 md:row-start-5 md:row-span-3" src={ThreeBrothers} alt="Pedra dos Três Irmãos"/>
+          <motion.div
+            className="col-span-2 md:col-start-2 md:col-span-2 md:row-start-1 md:row-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeRightItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover aspect-8/3" src={ChurchInRuins} alt="Ruínas de igreja histórica"/>
+          </motion.div>
+
+          <motion.div
+            className="md:col-start-1 md:row-start-2 md:row-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeLeftItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover" src={Church} alt="Igreja"/>
+          </motion.div>
+
+          <motion.div
+            className="md:col-start-2 md:row-start-3 md:row-span-3 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeUpItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover" src={ChurchSeenFromAbove} alt="Vista aérea da igreja"/>
+          </motion.div>
+
+          <motion.div
+            className="col-span-2 md:col-start-1 md:col-span-2 md:row-start-6 md:row-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeUpItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover" src={MunicipalMarket} alt="Mercado municipal"/>
+          </motion.div>
+
+          <motion.div
+            className="md:col-start-1 md:row-start-4 md:row-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeLeftItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover" src={Square} alt="Praça"/>
+          </motion.div>
+
+          <motion.div
+            className="md:col-start-3 md:row-start-3 md:row-span-2 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeRightItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover" src={Ounce} alt="Estátua da onça"/>
+          </motion.div>
+
+          <motion.div
+            className="col-span-2 md:col-span-1 md:col-start-3 md:row-start-5 md:row-span-3 min-w-0"
+            initial="hidden" whileInView="visible" viewport={defaultViewport} variants={fadeRightItem}
+          >
+            <Image className="tourism__image rounded-sm w-full h-full object-cover" src={ThreeBrothers} alt="Pedra dos Três Irmãos"/>
+          </motion.div>
         </section>
       </div>
     </>

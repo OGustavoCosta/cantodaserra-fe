@@ -28,12 +28,25 @@ import MotionProvider from '@/components/providers/MotionProvider'
 
 /* ======================================================================== */
 /* METADADOS */
+const description = 'Pousada aconchegante e rústica no coração de Palmas de Monte Alto – BA. Café da manhã incluso, Wi-Fi e Netflix disponíveis para todos os hóspedes. Descubra o charme autêntico do interior baiano.'
+
 export const metadata = {
-  title: 'Pousada Canto da Serra',
-  applicationName: "Pousada Canto da Serra",
-  description: 'O Educa Drones é uma iniciativa inovadora do Instituto Federal Baiano – Campus Guanambi, que utiliza drones para transformar o aprendizado de estudantes e professores. Através da metodologia STEAM, o projeto integra Ciência, Tecnologia, Engenharia, Artes e Matemática em atividades práticas e dinâmicas. O projeto não só aproxima os alunos das tecnologias do futuro, mas também os prepara para os desafios de um mercado cada vez mais digital e interconectado. Ao promover a construção e operação de drones, o projeto estimula a criatividade, a resolução de problemas e a colaboração, impactando positivamente a forma como os jovens aprendem e se conectam com a inovação tecnológica.',
-  keywords: ['EducaDrones', 'Educa Drones', 'Educação com drones', 'Projeto Educa Drones', 'Drones educacionais', 'STEAM na educação', 'Robótica educacional', 'Tecnologia no ensino', 'Inovação educacional', 'Drones para aprendizado', 'Competição de drones estudantis', 'Oficinas de drones', 'Aprendizado prático com drones', 'Ensino de ciências com drones', 'Tecnologia em sala de aula', 'Educação tecnológica', 'Desenvolvimento de drones', 'Formação de jovens em tecnologia', 'Drones no ensino de física', 'Aeronaves remotamente pilotadas', 'Desafios STEAM', 'Educação inovadora com drones'],
-  metadataBase: new URL('https://educadrones.com.br'),
+  title: 'Pousada Canto da Serra | Palmas de Monte Alto – BA',
+  applicationName: 'Pousada Canto da Serra',
+  description,
+  keywords: [
+    'Pousada Canto da Serra',
+    'Pousada Palmas de Monte Alto',
+    'Hospedagem Palmas de Monte Alto',
+    'Pousada Bahia',
+    'Pousada interior baiano',
+    'Pousada rústica Bahia',
+    'Hospedagem com café da manhã Bahia',
+    'Turismo Palmas de Monte Alto',
+    'Pousada aconchegante Bahia',
+    'Onde ficar em Palmas de Monte Alto',
+  ],
+  metadataBase: new URL('https://cantodaserrapa.com.br'),
   alternates: { canonical: '/' },
   authors: [{ name: 'Gustavo Costa', url: '' }],
   formatDetection: {
@@ -43,8 +56,8 @@ export const metadata = {
   },
   openGraph: {
     images: openGraphBanner,
-    title: 'Pousada Canto da Serra',
-    description: 'O Educa Drones é uma iniciativa inovadora do Instituto Federal Baiano – Campus Guanambi, que utiliza drones para transformar o aprendizado de estudantes e professores [...]',
+    title: 'Pousada Canto da Serra | Palmas de Monte Alto – BA',
+    description,
     type: 'website',
     siteName: 'Pousada Canto da Serra',
     locale: 'pt_BR',
@@ -52,8 +65,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pousada Canto da Serra',
-    description: 'O Educa Drones é uma iniciativa inovadora do Instituto Federal Baiano – Campus Guanambi, que utiliza drones para transformar o aprendizado de estudantes e professores [...]',
+    title: 'Pousada Canto da Serra | Palmas de Monte Alto – BA',
+    description,
     images: [openGraphBanner],
   },
   robots: { index: true, follow: true },

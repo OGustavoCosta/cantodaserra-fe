@@ -1,5 +1,7 @@
 import type { Variants } from "motion/react"
 
+export const defaultViewport = { once: true, margin: "0px 0px -80px 0px" } as const
+
 /* CONTAINERS */
 export const motionContainer: Variants = {
   hidden: {},
