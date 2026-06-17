@@ -75,7 +75,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="pt-br" className={`${lato.variable} ${cormorantUnicase.variable}`}>
+    <html lang="pt-br" className={`${lato.variable} ${cormorantUnicase.variable} scroll-smooth`}>
       <body className='flex flex-col min-h-screen bg-ds-neutral-50 overflow-x-hidden max-w-dvw'>
         <MotionProvider>
           <SkipLink/>
