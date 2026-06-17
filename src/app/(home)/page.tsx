@@ -31,8 +31,9 @@ import LivingRoom from "#/public/location/living-room.jpg"
 
 
 /* COMPONENTES */
-import BenefitCard from "@/components/BenefitCard";
+import BenefitCard from "@/components/cards/BenefitCard";
 import Button from "@/components/Button";
+import Bedrooms from "./_components/Bedrooms";
 
 type Benefits = {
   id: number;
@@ -67,20 +68,37 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <div className="hero__background background-section">
+      <div id="hero" className="hero__background background-section">
         <section
           className="hero w-full max-w-[1440px] h-svh min-h-svh py-16 pb-8 flex"
           aria-labelledby="hero-title"
         >
-          <div className="hero__banner w-full h-full bg-ds-neutral-100 rounded-2xl overflow-hidden">
+          <div className="hero__banner relative w-full h-full bg-ds-neutral-100 rounded-2xl overflow-hidden">
             <Image className="w-full h-full object-cover hidden md:block" src={Banner} alt=""></Image>
             <Image className="w-full h-full object-cover md:hidden" src={BannerMobile} alt=""></Image>
+
+            <div className="hero__overlay absolute inset-0 bg-ds-neutral-900/20"></div>
+
+            <motion.div
+              className="hero__content absolute inset-6 text-ds-neutral-0 flex flex-col xs:flex-col-reverse mlg:flex-row justify-between mlg:items-end gap-4"
+              initial="hidden" animate="visible" variants={motionContainer}
+            >
+              <figure className="hero__quote max-w-2xl flex flex-col gap-2">
+                <motion.blockquote className="text-2xl/[110%] xs:text-4xl/[110%] mlg:text-5xl/[110%] font-extrabold italic" variants={fadeLeftItem}>&ldquo;Todo homem precisa de um lugar para deitar a cabeça, descansar o corpo e lavar a alma.&rdquo;</motion.blockquote>
+                <motion.figcaption className="text-sm/[120%] font-normal not-italic" variants={fadeLeftItem}>— <cite>Jorge Amado</cite></motion.figcaption>
+              </figure>
+
+              <div className="hero__header">
+                <motion.h1 className="hero__title text-base/[120%] font-semibold" variants={fadeLeftItem}>Pousada Canto da Serra</motion.h1>
+                <motion.p className="hero__text text-sm/[120%]" variants={fadeLeftItem}>Palmas de Monte Alto – BA</motion.p>
+              </div>
+            </motion.div>
           </div>
         </section>
       </div>
 
       {/* BENEFÍCIOS */}
-      <div className="banefits__background background-section">
+      <div id="beneficios" className="banefits__background background-section">
         <section
           className="banefits w-full max-w-[1280px] py-16 flex flex-col justify-center"
           aria-labelledby="benefits-title"
@@ -103,9 +121,12 @@ function Home() {
           </motion.div>
         </section>
       </div>
+      
+      {/* QUARTOS */}
+      <Bedrooms/>
 
       {/* LOCALIZAÇÃO */}
-      <div className="location__background background-section overflow-hidden">
+      <div id="localizacao" className="location__background background-section overflow-hidden">
         <section
           className="location w-full max-w-[1440px] py-8 grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1.5fr] mlg:grid-cols-3 md:grid-rows-[20rem_min-content_20rem] gap-4 md:gap-6"
           aria-labelledby="location-title"
@@ -135,10 +156,10 @@ function Home() {
             className="location__wrapper row-start-2 md:row-auto col-span-2 flex flex-col gap-4 p-4 mlg:p-8"
             initial="hidden" whileInView="visible" viewport={defaultViewport} variants={motionContainer}
           >
-            <motion.h2 className="location__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant" variants={fadeLeftItem}>Onde o tempo tem outro ritmo</motion.h2>
-            <motion.p className="location__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400" variants={fadeLeftItem}>No coração de Palmas de Monte Alto, o Canto da Serra é uma pausa na correria. Pousada pequena, acolhedora e com aquele jeitinho de interior baiano que faz a gente se sentir em casa desde a chegada. Ficamos a poucos passos da Praça Central e das principais atrações históricas da cidade — o ponto de partida perfeito para descobrir o charme autêntico desse pedaço da Bahia.</motion.p>
+            <motion.h2 className="location__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant" variants={fadeLeftItem}>Onde estamos</motion.h2>
+            <motion.p className="location__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400" variants={fadeLeftItem}>No coração de Palmas de Monte Alto, o Canto da Serra é uma pausa na correria. Pousada pequena, acolhedora e com aquele jeitinho de interior baiano que faz a gente se sentir em casa desde a chegada.</motion.p>
             <motion.div variants={fadeLeftItem}>
-              <Button text="Localização no Maps" link="https://maps.app.goo.gl/dPUvK5CPZEWcCMws7" target="_blank" rel="noopener noreferrer"/>
+              <Button text="Localização no Maps" link="https://maps.app.goo.gl/dPUvK5CPZEWcCMws7" target="_blank"/>
             </motion.div>
           </motion.div>
 
@@ -152,7 +173,7 @@ function Home() {
       </div>
 
       {/* TURISMO */}
-      <div className="tourism__background background-section overflow-hidden">
+      <div id="turismo" className="tourism__background background-section overflow-hidden">
         <section
           className="tourism w-full max-w-[1440px] py-8 pb-0 grid grid-cols-2 md:grid-cols-3 md:grid-rows-[1fr_repeat(6,10rem)] gap-4 md:gap-6"
           aria-labelledby="tourism-title"

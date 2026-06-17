@@ -30,10 +30,10 @@ function Header(){
             initial="hidden"
             animate="visible"
           >
-            <motion.li className="header__item" variants={fadeDownItem}><a href="#" className="header__link link-underline">Início</a></motion.li>
-            <motion.li className="header__item" variants={fadeDownItem}><a href="#" className="header__link link-underline">Quartos</a></motion.li>
-            <motion.li className="header__item" variants={fadeDownItem}><a href="#" className="header__link link-underline">Localização</a></motion.li>
-            <motion.li className="header__item" variants={fadeDownItem}><a href="#" className="header__link link-underline">Turismo</a></motion.li>
+            <motion.li className="header__item" variants={fadeDownItem}><a href="#hero" className="header__link link-underline">Início</a></motion.li>
+            <motion.li className="header__item" variants={fadeDownItem}><a href="#quartos" className="header__link link-underline">Quartos</a></motion.li>
+            <motion.li className="header__item" variants={fadeDownItem}><a href="#localizacao" className="header__link link-underline">Localização</a></motion.li>
+            <motion.li className="header__item" variants={fadeDownItem}><a href="#turismo" className="header__link link-underline">Turismo</a></motion.li>
           </motion.ul>
         </nav>
       </div>

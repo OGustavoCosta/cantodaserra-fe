@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link"
 import { useState, useEffect } from "react"
 import { FocusTrap } from "focus-trap-react"
 
@@ -70,10 +69,10 @@ function HeaderDrawer(){
 
           <nav className="headerDrawer__navigation">
             <ul className="headerDrawer__list grid gap-1">
-              <li className="headerDrawer__item"><Link href="/" className="headerDrawer__link py-1 link-underline">Início</Link></li>
-              <li className="headerDrawer__item"><Link href="/blog" className="headerDrawer__link py-1 link-underline">Blog</Link></li>
-              <li className="headerDrawer__item"><Link href="/sobre" className="headerDrawer__link py-1 link-underline">Sobre</Link></li>
-              <li className="headerDrawer__item"><Link href="/integrantes" className="headerDrawer__link py-1 link-underline">Membros</Link></li>
+              <li className="headerDrawer__item"><a href="#hero" onClick={close} className="headerDrawer__link py-1 link-underline">Início</a></li>
+              <li className="headerDrawer__item"><a href="#quartos" onClick={close} className="headerDrawer__link py-1 link-underline">Quartos</a></li>
+              <li className="headerDrawer__item"><a href="#localizacao" onClick={close} className="headerDrawer__link py-1 link-underline">Localização</a></li>
+              <li className="headerDrawer__item"><a href="#turismo" onClick={close} className="headerDrawer__link py-1 link-underline">Turismo</a></li>
             </ul>
           </nav>
         </div>
