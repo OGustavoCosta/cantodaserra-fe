@@ -182,7 +182,7 @@ function Home() {
             className="tourism__wrapper col-span-2 md:col-span-1 md:col-start-1 md:row-start-1 flex flex-col gap-1 p-2 mlg:p-4"
             initial="hidden" whileInView="visible" viewport={defaultViewport} variants={motionContainer}
           >
-            <motion.h2 id="tourism-title" className="tourism__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant" variants={fadeLeftItem}>Turismo em PMA</motion.h2>
+            <motion.h2 id="tourism-title" className="tourism__title text-[1.75rem]/[110%] xs:text-[2rem]/[110%] mlg:text-4xl/[110%] text-ds-green-200 font-bold font-ds-cormorant" variants={fadeLeftItem}>Turismo na cidade</motion.h2>
             <motion.p className="tourism__text text-sm/[120%] mlg:text-base/[120%] text-ds-neutral-400" variants={fadeLeftItem}>Palmas de Monte Alto tem uma história guardada em cada pedra. A Igreja Matriz, as ruínas centenárias, a Pedra dos Três Irmãos e o Mercado Municipal contam capítulos de uma cidade que ainda não foi descoberta pelo turismo de massa — e é exatamente isso que a torna tão especial. Uma experiência genuína do interior da Bahia, para quem aprecia o que é verdadeiro.</motion.p>
           </motion.div>
 

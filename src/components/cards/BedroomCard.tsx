@@ -47,10 +47,10 @@ function BedroomCard({ name, excerpt, images, beds, privateBathroom, privateBalc
               ))}
             </Swiper>
 
-            <button onClick={() => swiper?.slidePrev()} className="absolute left-4 top-2/5 -translate-y-1/2 z-10 bg-white/80 hover:bg-white transition-colors rounded-full p-1.5">
+            <button onClick={() => swiper?.slidePrev()} className="absolute left-4 top-2/5 mlg:opacity-0 group-hover/card:opacity-100 transition-all -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-1.5">
               <ChevronLeft size={22} strokeWidth={2}/>
             </button>
-            <button onClick={() => swiper?.slideNext()} className="absolute right-4 top-2/5 -translate-y-1/2 z-10 bg-white/80 hover:bg-white transition-colors rounded-full p-1.5">
+            <button onClick={() => swiper?.slideNext()} className="absolute right-4 top-2/5 mlg:opacity-0 group-hover/card:opacity-100 transition-all -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-1.5">
               <ChevronRight size={22} strokeWidth={2}/>
             </button>
           </>
